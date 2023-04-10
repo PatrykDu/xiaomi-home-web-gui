@@ -14,6 +14,7 @@ class Device:
     ip: str
     token: str
     device_type: str
+    remote_object: Yeelight = None
 
 
 class DeviceResource:
@@ -97,19 +98,6 @@ def on_cuco_light_s14(cuco_group_list: List[MiotDevice]) -> None:
 def off_cuco_light_s14(cuco_group_list: List[MiotDevice]) -> None:
     for cuco in cuco_group_list:
         cuco.set_property_by(2, 1, False)
-
-
-# Create list of all devices
-devices_list = DeviceResource.change_json_to_devices(DEVICES_JSON_PATH)
-
-# Create group of cuco devices in one group (connected lights in one room)
-cuco_devices_list = [
-    device for device in devices_list if device.device_type == "MiotDevice"]
-cuco_group_list = create_cuco_light_s14_group(cuco_devices_list)
-
-yeelight_devices_list = [
-    create_yeelight_device(device) for device in devices_list if device.device_type == "yeelight"]
-
 
 
 # Turn on and off yeelight lights and check power status

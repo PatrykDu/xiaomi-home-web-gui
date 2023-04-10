@@ -1,3 +1,4 @@
 .venv
 devices.txt
 devices.json
+*__pycache__*
