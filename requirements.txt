@@ -2,7 +2,6 @@ android-backup==0.2.0
 appdirs==1.4.4
 async-timeout==4.0.2
 attrs==22.2.0
-autopep8==2.0.2
 certifi==2022.12.7
 cffi==1.15.1
 charset-normalizer==3.1.0
@@ -15,12 +14,8 @@ idna==3.4
 ifaddr==0.2.0
 micloud==0.6
 netifaces==0.11.0
-pycodestyle==2.10.0
 pycparser==2.21
 pycryptodome==3.17
-PyQt5==5.15.9
-PyQt5-Qt5==5.15.2
-PyQt5-sip==12.11.1
 python-dateutil==2.8.2
 python-miio==0.5.12
 pytz==2023.3
@@ -28,7 +23,6 @@ pytz-deprecation-shim==0.1.0.post0
 PyYAML==6.0
 requests==2.28.2
 six==1.16.0
-tomli==2.0.1
 tqdm==4.65.0
 tzdata==2023.3
 tzlocal==4.3
