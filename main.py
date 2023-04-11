@@ -1,40 +1,39 @@
 from actions import DeviceResource, create_cuco_light_s14_group, create_device_yeelight, power_status_yeelight, power_status_cuco_light_s14_group, off_cuco_light_s14, on_cuco_light_s14, DEVICES_JSON_PATH
 from miio.integrations.light.yeelight.yeelight import Yeelight
 from miio.miot_device import MiotDevice
-from pystray import MenuItem as item
 import pystray
-from PIL import Image, ImageTk
+from PIL import Image
 import tkinter as tk
 from typing import List
 
 window = tk.Tk()
 label = window.title("Mi Home")
 
-icon_photo = tk.PhotoImage(file = 'mi.png')
+icon_photo = tk.PhotoImage(file='mi.png')
 window.iconphoto(False, icon_photo)
 
 
 # Define a function for quit the window
 def quit_window(icon, item):
-   icon.stop()
-   window.destroy()
+    icon.stop()
+    window.destroy()
 
 
 # Define a function to show the window again
 def show_window(icon, item):
-   icon.stop()
-   window.after(0,window.deiconify())
+    icon.stop()
+    window.after(0, window.deiconify())
 
 
 # Hide the window and show on the system taskbar
 def hide_window():
-   window.withdraw()
-   image=Image.open("mi.ico")
-   icon = pystray.Icon(name="Mi Home",icon=image,title="Mi Home",menu=pystray.Menu(
-   pystray.MenuItem(text="Open",action=show_window,default=True),
-   pystray.MenuItem(text="Exit",action=quit_window)
+    window.withdraw()
+    image = Image.open("mi.ico")
+    icon = pystray.Icon(name="Mi Home", icon=image, title="Mi Home", menu=pystray.Menu(
+        pystray.MenuItem(text="Open", action=show_window, default=True),
+        pystray.MenuItem(text="Exit", action=quit_window)
     ))
-   icon.run()
+    icon.run()
 
 
 # Buttons logic
@@ -91,7 +90,8 @@ button_bed.configure(bg=button_initial_color_yeelight(bed_device))
 button_bed.grid(row=2, column=0)
 
 edroom_lamp_device = yeelight_devices_dict["Bedroom Lamp"]
-button_bedroom_lamp = tk.Button(window, text="Bedroom Lamp", height=5, width=25)
+button_bedroom_lamp = tk.Button(
+    window, text="Bedroom Lamp", height=5, width=25)
 button_bedroom_lamp.config(command=lambda: toggle_device_yeelight(
     edroom_lamp_device, button_bedroom_lamp))
 button_bedroom_lamp.configure(
@@ -106,7 +106,8 @@ button_island.configure(bg=button_initial_color_yeelight(island_device))
 button_island.grid(row=2, column=2)
 
 livingroom_lamp_device = yeelight_devices_dict["Livingroom Lamp"]
-button_livingroom_lamp = tk.Button(window, text="Livingroom Lamp", height=5, width=25)
+button_livingroom_lamp = tk.Button(
+    window, text="Livingroom Lamp", height=5, width=25)
 button_livingroom_lamp.config(command=lambda: toggle_device_yeelight(
     livingroom_lamp_device, button_livingroom_lamp))
 button_livingroom_lamp.configure(
@@ -131,6 +132,12 @@ button_sufit.config(command=lambda: toggle_device_cuco_group(
     cuco_group_list, button_sufit))
 button_sufit.configure(bg=button_initial_color_cuco(cuco_group_list))
 button_sufit.grid(row=2, column=5)
+
+# Start minimalized
+start_flag = True
+if start_flag:
+    start_flag = False
+    hide_window()
 
 window.protocol('WM_DELETE_WINDOW', hide_window)
 window.mainloop()
