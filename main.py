@@ -6,10 +6,13 @@ from PIL import Image
 import tkinter as tk
 from typing import List
 
+PHOTO_PATH = 'D:\Programs\Mi Home\dist\mi.png'
+
+
 window = tk.Tk()
 label = window.title("Mi Home")
 
-icon_photo = tk.PhotoImage(file='mi.png')
+icon_photo = tk.PhotoImage(file=PHOTO_PATH)
 window.iconphoto(False, icon_photo)
 
 
