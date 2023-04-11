@@ -51,7 +51,7 @@ class DeviceResource:
 
 # Yeelight lights handling
 
-def create_yeelight_device(device: Device) -> (Yeelight):
+def create_device_yeelight(device: Device) -> (Yeelight):
     return Yeelight(device.ip,
                     device.token)
 
