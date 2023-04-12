@@ -5,7 +5,7 @@ from typing import List, Dict
 import json
 
 
-DEVICES_JSON_PATH = 'devices.json'
+DEVICES_JSON_PATH = 'D:\Programs\Mi Home\devices.json'
 
 
 @dataclass
