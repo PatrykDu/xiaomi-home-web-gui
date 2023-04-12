@@ -1,4 +1,6 @@
-from actions import DeviceResource, create_cuco_light_s14_group, create_device_yeelight, power_status_yeelight, power_status_cuco_light_s14_group, off_cuco_light_s14, on_cuco_light_s14, DEVICES_JSON_PATH
+from actions import DeviceResource, create_cuco_light_s14_group, create_device_yeelight,  \
+    power_status_yeelight, power_status_cuco_light_s14_group, off_cuco_light_s14, \
+        on_cuco_light_s14, DEVICES_JSON_PATH
 from miio.integrations.light.yeelight.yeelight import Yeelight
 from miio.miot_device import MiotDevice
 import pystray
